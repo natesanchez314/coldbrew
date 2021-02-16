@@ -62,13 +62,13 @@ class GameContainer(game: AbstractGame) extends Runnable {
           frameTime = 0
           fps = frames
           frames = 0
-          println("FPS: " + fps)
         }
       }
 
       if (render) {
         _renderer.clear()
         game.render(this, _renderer)
+        _renderer.drawText("FPS: " + fps, 0, 0, 0xff00ffff)
         _window.update()
         frames += 1
       } else {
